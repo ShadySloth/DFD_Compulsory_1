@@ -4,8 +4,12 @@ namespace DFD_Compulsory_1.Entities;
 
 public class SchoolContext : DbContext
 {
-    protected SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer("Server=localhost;Database=SchoolDb;Trusted_Connection=True;");
+        }
     }
     
     public DbSet<Student> Students { get; set; }
