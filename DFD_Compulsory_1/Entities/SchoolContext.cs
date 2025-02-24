@@ -15,6 +15,7 @@ public class SchoolContext : DbContext
     public DbSet<Student> Students { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<Enrollment> Enrollments { get; set; }
+    public DbSet<Instructor> Instructors { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -27,6 +28,11 @@ public class SchoolContext : DbContext
             .HasOne(enrollment => enrollment.Course)
             .WithMany()
             .HasForeignKey(enrollment => enrollment.CourseId);
+        
+        modelBuilder.Entity<Course>()
+            .HasOne(course => course.Instructor)
+            .WithMany()
+            .HasForeignKey(course => course.InstructorId);
         
         base.OnModelCreating(modelBuilder);
     }
