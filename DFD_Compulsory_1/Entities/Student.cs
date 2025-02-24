@@ -10,6 +10,9 @@ public class Student
     public required string FirstName { get; set; }
     
     [Column(TypeName = "varchar(50)")]
+    public string? MiddleName { get; set; }
+    
+    [Column(TypeName = "varchar(50)")]
     public required string LastName { get; set; }
     
     [Column(TypeName = "varchar(60)")]
