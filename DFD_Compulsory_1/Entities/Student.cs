@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace DFD_Compulsory_1.Entities;
 
@@ -17,6 +18,8 @@ public class Student
     
     [Column(TypeName = "varchar(60)")]
     public required string Email { get; set; }
+    
+    public required DateTime BirthDate { get; set; }
     
     public DateTime EnrollmentDate { get; set; }
 }
