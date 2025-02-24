@@ -10,4 +10,8 @@ public class Course
     public string Title { get; set; }
     
     public int Credits { get; set; }
+    
+    public int InstructorId { get; set; }
+    
+    public Instructor Instructor { get; set; }
 }
