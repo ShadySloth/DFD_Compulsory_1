@@ -12,20 +12,29 @@ In our enrollment entity we created a enum for the grades to ensure that only th
 
 ## Change based migrations
 
-### Migration 1
+### Migration 1 (Initial schema)
+
+We created the entities for student, course and enrollment with their attributes. Since the id of the entities 
+was just called id we didn't have to define their primary key as EF will automatically pick it as the primary key.
+For the foreign keys we made use of the OnModelCreating method in our SchoolContext where we can add relations between tables.
+
+### Migration 2
 
 We edited the student entity to include a middle name attribute, 
 we also made it have the annotation that limits the amount of characters as we have done on the other entities, 
 but also made it nullable as not everyone have a middle name.
 
-### Migration 2
+### Migration 3
 
 We edited the student entity again to have it include a birthdate, 
 we chose to make the attribute be a DateTime like we have done with the enrollment date.
 
-### Migration 3
+### Migration 4
 
 We added a new entity called instructor with the mentioned specifications and added it to the course entity as a foreign key.
 
-### Migration 4
+### Migration 5
+
+We decided on using a non-destructive approach to renaming the grade attribute.
+We chose this way because it can prevent problems in the cade that would still use the old attribute.
 

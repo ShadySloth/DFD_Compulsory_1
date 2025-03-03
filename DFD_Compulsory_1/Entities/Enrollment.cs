@@ -12,6 +12,8 @@ public class Enrollment
     
     public Grade Grade { get; set; }
     
+    public Grade FinalGrade { get; set; }
+    
     
     public Student Student { get; set; }
     public Course Course { get; set; }
