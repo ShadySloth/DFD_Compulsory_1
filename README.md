@@ -38,3 +38,7 @@ We added a new entity called instructor with the mentioned specifications and ad
 We decided on using a non-destructive approach to renaming the grade attribute.
 We chose this way because it can prevent problems in the cade that would still use the old attribute.
 
+### Migration 6
+
+For this migration, we added the entity Department, in this we have added the Instructor entity as a foreign key.
+Since Instructor is supposed to be a department head, we have made an attribute comment stating that, and this will be visible in the code so others can understand it.
