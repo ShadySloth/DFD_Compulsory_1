@@ -9,7 +9,7 @@ public class Course
     [Column(TypeName = "varchar(50)")]
     public string Title { get; set; }
     
-    public int Credits { get; set; }
+    public Decimal Credits { get; set; }
     
     public int InstructorId { get; set; }
     
