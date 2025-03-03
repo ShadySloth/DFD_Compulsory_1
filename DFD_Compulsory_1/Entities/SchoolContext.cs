@@ -34,6 +34,11 @@ public class SchoolContext : DbContext
             .WithMany()
             .HasForeignKey(course => course.InstructorId);
         
+        modelBuilder.Entity<Department>()
+            .HasOne(department => department.Instructor)
+            .WithMany()
+            .HasForeignKey(department => department.InstructorId);
+        
         base.OnModelCreating(modelBuilder);
     }
 }
