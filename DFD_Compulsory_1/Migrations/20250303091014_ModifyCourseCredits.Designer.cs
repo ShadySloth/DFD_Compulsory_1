@@ -4,6 +4,7 @@ using DFD_Compulsory_1.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DFD_Compulsory_1.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20250303091014_ModifyCourseCredits")]
+    partial class ModifyCourseCredits
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,6 +91,7 @@ namespace DFD_Compulsory_1.Migrations
 
                     b.Property<int>("FinalGrade")
                         .HasColumnType("int");
+
                     b.Property<int>("Grade")
                         .HasColumnType("int");
 
@@ -126,7 +130,6 @@ namespace DFD_Compulsory_1.Migrations
 
                     b.ToTable("Instructors");
                 });
-
 
             modelBuilder.Entity("DFD_Compulsory_1.Entities.Student", b =>
                 {

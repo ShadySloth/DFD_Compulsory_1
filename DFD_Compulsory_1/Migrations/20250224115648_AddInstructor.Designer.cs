@@ -4,6 +4,7 @@ using DFD_Compulsory_1.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DFD_Compulsory_1.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20250224115648_AddInstructor")]
+    partial class AddInstructor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,8 +33,8 @@ namespace DFD_Compulsory_1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Credits")
-                        .HasColumnType("decimal(5, 2)");
+                    b.Property<int>("Credits")
+                        .HasColumnType("int");
 
                     b.Property<int>("InstructorId")
                         .HasColumnType("int");
@@ -47,34 +50,6 @@ namespace DFD_Compulsory_1.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("DFD_Compulsory_1.Entities.Department", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<decimal>("Budget")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.Property<int>("InstructorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InstructorId");
-
-                    b.ToTable("Department");
-                });
-
             modelBuilder.Entity("DFD_Compulsory_1.Entities.Enrollment", b =>
                 {
                     b.Property<int>("Id")
@@ -86,8 +61,6 @@ namespace DFD_Compulsory_1.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FinalGrade")
-                        .HasColumnType("int");
                     b.Property<int>("Grade")
                         .HasColumnType("int");
 
@@ -127,7 +100,6 @@ namespace DFD_Compulsory_1.Migrations
                     b.ToTable("Instructors");
                 });
 
-
             modelBuilder.Entity("DFD_Compulsory_1.Entities.Student", b =>
                 {
                     b.Property<int>("Id")
@@ -163,17 +135,6 @@ namespace DFD_Compulsory_1.Migrations
                 });
 
             modelBuilder.Entity("DFD_Compulsory_1.Entities.Course", b =>
-                {
-                    b.HasOne("DFD_Compulsory_1.Entities.Instructor", "Instructor")
-                        .WithMany()
-                        .HasForeignKey("InstructorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Instructor");
-                });
-
-            modelBuilder.Entity("DFD_Compulsory_1.Entities.Department", b =>
                 {
                     b.HasOne("DFD_Compulsory_1.Entities.Instructor", "Instructor")
                         .WithMany()
