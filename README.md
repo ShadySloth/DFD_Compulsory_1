@@ -10,7 +10,9 @@ In our student and course entity we made sure to use the column typeName annotat
 
 In our enrollment entity we created a enum for the grades to ensure that only the correct values could be set as a grade.
 
-## Change based migrations
+## State based migrations
+For state based, we used the "-i" operator in the "dotnet ef migrations script" command to generate the SQL script for the migration.
+Example: `dotnet ef migrations script -i -o StateBasedMigrations/InitialSchema.sql`
 
 ### Migration 1 (Initial schema)
 
