@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DFD_Compulsory_1.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20250303090017_ModifyCourseCredits")]
+    [Migration("20250303091014_ModifyCourseCredits")]
     partial class ModifyCourseCredits
     {
         /// <inheritdoc />
@@ -34,7 +34,7 @@ namespace DFD_Compulsory_1.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Credits")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5, 2)");
 
                     b.Property<int>("InstructorId")
                         .HasColumnType("int");

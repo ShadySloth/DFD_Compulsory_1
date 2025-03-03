@@ -13,22 +13,22 @@ namespace DFD_Compulsory_1.Migrations
             migrationBuilder.AlterColumn<decimal>(
                 name: "Credits",
                 table: "Courses",
-                type: "decimal(18,2)",
+                type: "decimal(5,2)",
                 nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int");
+                oldClrType: typeof(decimal),
+                oldType: "decimal(18,2)");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<int>(
+            migrationBuilder.AlterColumn<decimal>(
                 name: "Credits",
                 table: "Courses",
-                type: "int",
+                type: "decimal(18,2)",
                 nullable: false,
                 oldClrType: typeof(decimal),
-                oldType: "decimal(18,2)");
+                oldType: "decimal(5,2)");
         }
     }
 }

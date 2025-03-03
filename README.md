@@ -42,3 +42,9 @@ We chose this way because it can prevent problems in the cade that would still u
 
 For this migration, we added the entity Department, in this we have added the Instructor entity as a foreign key.
 Since Instructor is supposed to be a department head, we have made an attribute comment stating that, and this will be visible in the code so others can understand it.
+
+### Migration 7
+
+We changed the credits attribute in Course from an int to a decimal. We chose a destructive approach this time because
+we came to the conclusion that changing it to a decimal wouldn't cause any problems where it would have been in use.
+But if it was the other way around we non-destructive approach would have been better.
